@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Vending Machine</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css"/>
+</head>
+<body>
+<div id="panel_left"></div>
+<div id="panel_right">
+
+    <div class="sub_panel_wallet">
+        <div class="sub_panel_inserted_coin">
+            Ваши деньги:
+            <span id="total_user">0</span>
+        </div>
+        <div id="sub_panel_insert_button" class="sub_panel_insert_button">
+            <div id="sub_panel_user_wallet"></div>
+            <p><input type="button" class="coin_push" amount="0" value="Сдача"/></p>
+        </div>
+    </div>
+
+    <div class="sub_panel_wallet">
+        <div class="sub_panel_inserted_coin">
+            Деньги автомата:
+            <span id="total_vm">0</span>
+        </div>
+        <div id="sub_panel_vm_wallet" class="sub_panel_vm_wallet"></div>
+    </div>
+
+    <div class="sub_panel_coin">
+        <div class="sub_panel_inserted_coin">
+            Внесенная сумма:
+            <span id="total_cost">0</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="common/util.js"></script>
+<script type="text/javascript" src="models/dispenser.js"></script>
+<script type="text/javascript" src="views/coinpanel.js"></script>
+<script type="text/javascript" src="views/itemdeck.js"></script>
+<script type="text/javascript" src="common/app.js"></script>
+</body>
+</html>
