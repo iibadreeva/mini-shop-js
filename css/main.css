@@ -1,0 +1,44 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1;
+}
+header, section, footer, aside, nav, main, article, figure {
+     display: block; 
+}
+BODY {
+  height: 100%;
+  margin: 0;
+  font-family: arial, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  /*min-width: 850px;*/
+}
+.main {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  max-width: 1150px;
+}
+.section-panel {
+	padding: 1rem 1rem 0 0;
+}
+.section-panel:first-child{
+  padding-left: 1rem;
+}
+.section-panel header {
+	background: #e0e0e0;
+}
+.section-panel > div {
+  text-align: right;
+}
+.section-panel:nth-child(3) > div {
+  text-align: center;
+}
+.section-panel header,
+.section-panel > div {
+  padding: 0 1rem;
+}
