@@ -18,7 +18,7 @@
 	<script type="text/x-handlebars-template" id="moneyUserTemplate">
 			<header>Кошелек: <span id="money-user">320</span></header>
 			{{#each list}}
-			<div>1 руб <span id="{{id}}">{{count}}</span> штук <button class="user-money" sum="{{currency}}">Купить</button></div>
+			<div>{{currency}} руб <span id="{{id}}">{{count}}</span> штук <button class="user-money" sum="{{currency}}">Купить</button></div>
 			{{/each}}
 			<div><button class="user-money" sum="0">Сдача</button></div>
 			<hr />
