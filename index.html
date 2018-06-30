@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="js/view.js"></script>
 </head>
 <body>
-	<main class="main">
+	<main id="results" class="main">
 		<section id="sub_panel_insert_button" class="section-panel">
 			<header>Кошелек: <span id="money-user">320</span></header>
 			<div>1 руб <span id="count-1">10</span> штук <button class="user-money" sum="1">Купить</button></div>
@@ -17,23 +19,47 @@
 			<hr />
 			<div>Внесенная сумма: <span  id="sum-return">0</span></div>
 		</section>
-		<section class="section-panel">
+		<section id="item-products" class="section-panel">
 			<header>Aссортимент товаров</header>
 			<div>Чай = 13 руб <span>10</span> порций. <button class="item-products" type-id="tea">Купить</button></div>
 			<div>Кофе = 18 руб <span>20</span> порций. <button class="item-products" type-id="coffee">Купить</button></div>
 			<div>Кофе с молоком = 21 руб <span>20</span> порций. <button class="item-products" type-id="coffee-m">Купить</button></div>
 			<div>Сок = 35 руб <span>15</span> порций. <button class="item-products" type-id="juice">Купить</button></div>
 		</section>
-		<section class="section-panel">
+		<section id="money-vm-panel" class="section-panel">
 			<header>Кошелек VM для сдачи: <span id="money-vm">1800</span></header>
 			<div>1 руб <span id="vm-1">100</span> штук</div>
 			<div>2 руб <span id="vm-2">100</span> штук</div>
 			<div>5 руб <span id="vm-3">100</span> штук</div>
 			<div>10 руб <span id="vm-4">100</span> штук</div>
 		</section>
-	</main>	
+	</main>
 
-	<script type="text/javascript" src="js/data.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+
+	<script type="text/x-handlebars-template" id="moneyUserTemplate">
+			<header>Кошелек: <span id="money-user">320</span></header>
+			{{#each list}}
+			<div>1 руб <span id="{{id}}">{{count}}</span> штук <button class="user-money" sum="{{currency}}">Купить</button></div>
+			{{/each}}
+			<div><button class="user-money" sum="0">Сдача</button></div>
+			<hr />
+			<div>Внесенная сумма: <span  id="sum-return">0</span></div>
+	</script>
+
+	<script type="text/x-handlebars-template" id="itemProductsTemplate">
+			<header>Aссортимент товаров</header>
+			{{#each list}}
+			<div>{{count}} = {{price}} руб <span>{{count}}</span> порций. <button class="item-products" type-id="{{id}}">Купить</button></div>
+			{{/each}}
+	</script>
+
+	<script type="text/x-handlebars-template" id="moneyVmTemplate">
+			<header>Кошелек VM для сдачи: <span id="money-vm">1800</span></header>
+			{{#each list}}
+			<div>{{currency}} руб <span id="{{id}}">{{count}}</span> штук</div>
+			{{/each}}
+	</script>
+
+	<script src="js/index.js" type="module"></script>
 </body>
 </html>
