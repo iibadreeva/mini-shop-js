@@ -1,4 +1,4 @@
-import {upDate} from '/mini-shop-js/js/index.js'
+// import {upDate} from '/mini-shop-js/js/index.js'
 import {matches} from '/mini-shop-js/js/controller.js'
 
 export default class Model {
@@ -185,8 +185,38 @@ export default class Model {
             this.pushTemplate();
             matches.sum = 0;
         }
-        upDate();
+        this.upDate();
     }
+
+    eventPruducts(e) {
+        try {
+            const returnPruducts = this.pruducts(e.getAttribute('type-id'));
+            if(returnPruducts){
+                const $countPruducts = e.previousSibling.previousSibling;
+                $countPruducts.innerText = returnPruducts.count;
+                matches.sum -= parseInt(returnPruducts.price);
+
+                alert('Покупка ' + returnPruducts.name + ' завершена. Спасибо');
+            }
+
+        }catch(e) {
+            console.log(e.message)
+        }finally {
+            this.upDate();
+        }
+    }
+
+    upDate(){
+        const $sumReturn = document.getElementById('sum-return'),
+            $moneyUser = document.getElementById('money-user'),
+            $moneyVm = document.getElementById('money-vm');
+
+        $sumReturn.innerText = matches.sum;
+        $moneyUser.innerText = this.getcount('user');
+        $moneyVm.innerText = this.getcount('vm');
+    }
+
+
 }
 
 
